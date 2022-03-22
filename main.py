@@ -1,27 +1,34 @@
-from random import choice
+from questions import question_data
 
 class Question:
-    def __init__(self, question, tanswer, alternative : list):
+    def __init__(self, question, tanswer):
         self.question = question
         self.tanswer = tanswer
-        self.alternative = alternative
 
     def choose_answer(self, answer):
         if answer == self.tanswer:
             return 1
 
-    def write_alternatives(self):
-        print(f"These are the alternatives: {self.alternative}")
-
 class Quiz:
-    def __init__(self, name, questions : list, score):
+    def __init__(self, name, q_list):
         self.name = name
-        self.questions = questions
-        self.score = score
+        self.question_list = q_list
+        self.score = 0
+        self.question_num = 0
 
-    def ask_question(self):
-        for x in len(self.questions):
-            choice(Question)
+    def nxt_question(self):
+        this_question = self.question_list
+        self.question_num = += 1
+        uanswer = input(f"{self.question_num: this_question.question")
 
-    if __name__ == "__main__":
-        main()
+question_list=[]
+for i in question_list:
+    question_q = i["question"]
+    question_a = i["answer"]
+    new_question = Question(question_q, question_a)
+    question_list.append(new_question)
+
+def main():
+    pass
+if __name__ == "__main__":
+    main()
