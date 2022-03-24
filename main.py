@@ -18,8 +18,12 @@ class Quiz:
 
     def nxt_question(self):
         this_question = self.question_list
-        self.question_num = += 1
-        uanswer = input(f"{self.question_num: this_question.question")
+        self.question_num += 1
+        uanswer = input(f"{self.question_num}: {this_question.question} (True/False): ")
+        self.right_answer(uanswer, this_question.answer)
+    
+    def questions_left(self):
+        return self.question_num < len(self.question_list)
 
 question_list=[]
 for i in question_list:
