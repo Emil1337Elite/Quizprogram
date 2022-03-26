@@ -1,38 +1,51 @@
-from questions import question_data
+from random import shuffle,choice
 
 class Question:
-    def __init__(self, question, tanswer):
+    def __init__(self, question, tanswer, alternative:list):
         self.question = question
         self.tanswer = tanswer
+        self.alternative = alternative
 
-    def choose_answer(self, answer):
+    def chkanswer(self, answer):
         if answer == self.tanswer:
             return 1
+        else: 
+            print(f"Your answer is incorrect. The correct answer was: {self.tanswer}")
+    
+    def write_alternatives(self):
+        print(f"Pick one of the following answers: {self.alteranative}")
 
 class Quiz:
-    def __init__(self, name, q_list):
+    def __init__(self, name, questions:list, score):
         self.name = name
-        self.question_list = q_list
-        self.score = 0
-        self.question_num = 0
-
-    def nxt_question(self):
-        this_question = self.question_list
-        self.question_num += 1
-        uanswer = input(f"{self.question_num}: {this_question.question} (True/False): ")
-        self.right_answer(uanswer, this_question.answer)
+        self.questions = questions
+        self.score = score
     
-    def questions_left(self):
-        return self.question_num < len(self.question_list)
-
-question_list=[]
-for i in question_list:
-    question_q = i["question"]
-    question_a = i["answer"]
-    new_question = Question(question_q, question_a)
-    question_list.append(new_question)
+    def ask(self):
+        for i in self.questions:
+            print(i.question)
+            q=0
+        for x in i.alternative:
+            q += 1
+            print(f"{q}: {x}")
+        answer = input("Write your answer: ")
+        if i.chkanswer(answer) == 1:
+            self.score += 1
+            print(f"Your current score is {self.score}")
+        else:
+            print(f"Your answer is incorrect. Current score: {self.score}\n")
+        
+    def get_name(self):
+        return self.name
+    
+    def get_score(self):
+        return self.score
+    
+    # def start(self):
+    #     print(f"Welcome to the {self.name}.\n")
 
 def main():
-    pass
+   quiz = Quiz("The Cool Quiz",[], 0)
+   
 if __name__ == "__main__":
     main()
