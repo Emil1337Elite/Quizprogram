@@ -30,14 +30,14 @@ class Quiz:
             for x in i.alternative:
                 q += 1
                 print(f"{q}: {x}")
-            answer = input("Write the number of your answer: ")
+            answer = input("Write the letter of your answer: ")
             if i.chkanswer(answer) == 1:
                 self.score += 1
                 self.num += 1
-                print(f""" You answered correctly. Your current score is {self.score}.""")
+                print(f"""You answered correctly. Your current score is {self.score}.\n""")
             else:
                 self.num += 1
-                print(f"Your answer is incorrect. Current score: {self.score}\n")
+                print(f"Current score: {self.score}\n")
     
     def get_score(self):
         return self.score
